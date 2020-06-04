@@ -1,7 +1,7 @@
 # Comedian_Newsletter
 
 ## Purpose
-This newsletter was created to help employees at the Hollywood Improv stay up to date on birthdays, death anniversaries, and news articles for stand-up comedians.  It is sent out on a daily and weekly basis (depending on recipients' preferences) and is also hosted online at [Improv Newsletter](http://ctmccorm.pythonanywhere.com/newsletter).
+This newsletter was created to help employees at the Hollywood Improv stay up to date on birthdays, death anniversaries, and news articles for stand-up comedians.  It is sent out on a daily and weekly basis (depending on recipients' preferences) and is also hosted on a flask-based website at [Improv Newsletter](http://ctmccorm.pythonanywhere.com/newsletter).
 
 ## File Summaries
 
