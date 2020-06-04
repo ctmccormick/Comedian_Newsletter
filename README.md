@@ -52,7 +52,7 @@ Uses `selenium` to update the files on the hosted website that people can visit 
 ### newsletter_dag.py
 Airflow dag to manage the process on a daily basis.  
 
-get_comedians >> wiki_scrape >> news_scrape >> df_clean >> [email_send, update_web_files]
+get_comedians >> wiki_scrape >> news_scrape >> df_clean >> update_web_files >> email_send 
 
 
 ## Packages used
