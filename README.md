@@ -1,7 +1,7 @@
 # Comedian_Newsletter
 
 ## Purpose
-This newsletter was created to help employees at the Hollywood Improv stay up to date on birthdays, death anniversaries, and news articles for stand-up comedians.
+This newsletter was created to help employees at the Hollywood Improv stay up to date on birthdays, death anniversaries, and news articles for stand-up comedians.  It is sent out on a daily and weekly basis (depending on recipients' preferences) and is also hosted online at 
 
 ## File Summaries
 
@@ -65,6 +65,7 @@ get_comedians >> wiki_scrape >> news_scrape >> df_clean >> update_web_files >> e
     airflow
     smtplib
     email
+    flask
     collections
     time
     datetime
