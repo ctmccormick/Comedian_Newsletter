@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Improv Newsletter</title>
+    <link rel="stylesheet" href="static/css/bday_table.css">
+</head>
+
+<header>
+    <img src="{{ url_for('static', filename = 'improv_logo.png') }}" class="banner">
+</header>
+
+<br>
+
+<h2>
+    Comedians' Birthdays - Week of {{ week }}
+    <br>
+</h2>
+
+<table class="birthdays">
+    {% for day_name, day_num in days_with_b_dict.items() %}
+        {% if day_num >= today_num_int %}
+            <tr><td colspan="2"><h3 class="bday_days">{{ day_name }}</h3></td></tr>
+            {% for name, details in bdays.items() %}
+                {% if details['full_day'] == day_name %}
+                    <tr>
+                    <td width="155px" height="155px">
+                        <a href=" {{ details['wiki_page'] }} ">
+                            <img src ="{{ details['image'] }}" class="biopic">
+                        </a>
+                    </td>
+                    <td valign="top">
+                        <p class="name">
+                            <a href="{{ details['wiki_page'] }}"> {{ name }} - {{ details['age'] }} </a>
+                        </p>
+                        <br>
+                        {{ details['summary'] }}
+                    </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+
+    {% for day_name, day_num in days_with_b_dict.items() %}
+        {% if day_num < today_num_int %}
+            <tr><td colspan="2"><h3 class="bday_days">{{ day_name }}</h3></td></tr>
+            {% for name, details in bdays.items() %}
+                {% if details['full_day'] == day_name %}
+                    <tr>
+                    <td width="155px" height="155px">
+                        <a href=" {{ details['wiki_page'] }} ">
+                            <img src ="{{ details['image'] }}" class="biopic">
+                        </a>
+                    </td>
+                    <td valign="top">
+                        <p class="name">
+                            <a href="{{ details['wiki_page'] }}"> {{ name }} - {{ details['age'] }} </a>
+                        </p>
+                        <br>
+                        {{ details['summary'] }}
+                    </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+
+    {% if bdays|length %}
+    {% else %}
+        <h4>No celebrity birthdays this week.</h4>
+    {% endif %}
+
+
+</table>
+
+
+<br>
+<br>
+<h2>Comedians in the News</h2>
+<br>
+
+<table class="news">
+    {% for name, nest in news_data.items() %}
+        {% for num, details in nest.items() %}
+        <tr>
+            <td height="100px">
+                <a href=" {{ details['link'] }} "> {{ details['title'] }}</a>
+                    <br>
+                    {{ details['date'] }}
+                    <br>
+                    {{ details['body'] }}
+            </td>
+        </tr>
+        {% endfor %}
+    {% endfor %}
+
+    {% if news_data|length %}
+    {% else %}
+        <h4>No death anniversaries this week.</h4>
+    {% endif %}
+
+</table>
+
+
+<br>
+<br>
+<h2>Death Anniversaries</h2>
+<br>
+
+
+<table class="birthdays">
+    {% for day_name, day_num in days_with_d_dict.items() %}
+        {% if day_num >= today_num_int %}
+            <tr><td colspan="2"><h3 class="bday_days">{{ day_name }}</h3></td></tr>
+            {% for name, details in ddays.items() %}
+                {% if details['full_day'] == day_name %}
+                    <tr>
+                    <td width="155px" height="155px">
+                        <a href=" {{ details['wiki_page'] }} ">
+                            <img src ="{{ details['image'] }}" class="biopic">
+                        </a>
+                    </td>
+                    <td valign="top">
+                        <p class="name">
+                            <a href="{{ details['wiki_page'] }}"> {{ name }} - {{ details['age'] }} </a>
+                        </p>
+                        <br>
+                        {{ details['summary'] }}
+                    </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+
+    {% for day_name, day_num in days_with_d_dict.items() %}
+        {% if day_num < today_num_int %}
+            <tr><td colspan="2"><h3 class="bday_days">{{ day_name }}</h3></td></tr>
+            {% for name, details in ddays.items() %}
+                {% if details['full_day'] == day_name %}
+                    <tr>
+                    <td width="155px" height="155px">
+                        <a href=" {{ details['wiki_page'] }} ">
+                            <img src ="{{ details['image'] }}" class="biopic">
+                        </a>
+                    </td>
+                    <td valign="top">
+                        <p class="name">
+                            <a href="{{ details['wiki_page'] }}"> {{ name }} - {{ details['age'] }} </a>
+                        </p>
+                        <br>
+                        {{ details['summary'] }}
+                    </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+
+
+    {% if ddays|length %}
+    {% else %}
+        <h4>No death anniversaries this week.</h4>
+    {% endif %}
+
+
+</table>
+
+
+</body>
+</html>
